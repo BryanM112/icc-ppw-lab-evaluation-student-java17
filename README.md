@@ -16,3 +16,5 @@ http://localhost:8075/api/swagger-ui.html
 ```
 
 La base H2 se crea automáticamente desde `schema.sql` y `data.sql`.
+
+.requestMatchers("/users/active-readers").permitAll()

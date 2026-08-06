@@ -18,10 +18,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public List<UserResponseDto> findActiveReaders(Integer minAge) {
-        return repository.findAll()
-                .stream()
-                .filter(entity -> !entity.isDeleted())
-                .map(UserMapper::toResponse)
-                .toList();
+        List<UserResponseDto> data = repository.findByAgeGreaterThanEqualAndActiveTrueAndDeletedFalseOrderByFullNameAsc(minAge).stream().map(UserMapper::toResponse).toList();
+        return data;
     }
 }

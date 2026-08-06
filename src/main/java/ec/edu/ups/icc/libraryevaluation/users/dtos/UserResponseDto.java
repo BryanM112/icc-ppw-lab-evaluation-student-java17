@@ -4,8 +4,9 @@ import java.util.Set;
 
 public record UserResponseDto(
                 Long id,
-                String name,
+                String fulName,
                 String email,
                 Integer age,
-                Boolean active) {
+                Boolean active,
+                Set<String> roles) {
 }

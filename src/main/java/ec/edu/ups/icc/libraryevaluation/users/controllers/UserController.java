@@ -15,6 +15,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/users")
+//@SecurityRequirement
 @Tag(name = "Users", description = "Consultas de usuarios de la biblioteca")
 public class UserController {
     private final UserService service;
@@ -24,6 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/active-readers")
+    //@PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Listar usuarios activos desde una edad mínima")
     public List<UserResponseDto> findActiveReaders(
             @Parameter(description = "Edad mínima inclusiva", example = "21") @RequestParam(defaultValue = "21") Integer minAge) {
