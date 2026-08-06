@@ -41,7 +41,7 @@ public class SecurityConfig {
                                 "/v3/api-docs/**",
                                 "/books/catalog")
                         .permitAll()
-                        .requestMatchers("/users/active-readers").permitAll()
+                        .requestMatchers("/users/active-readers", "/publishers/**","/books/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

@@ -26,6 +26,7 @@ public class PublisherController {
 
     @GetMapping("/active")
 
+    //@PreAuthorize("hasRole('ADMIN','LIBRARIAN')")
     @Operation(summary = "Listar editoriales activas por país")
     public List<PublisherResponseDto> findActiveByCountry(
             @Parameter(description = "País exacto, sin distinguir mayúsculas", example = "Ecuador") @RequestParam String country) {
